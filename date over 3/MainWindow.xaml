@@ -1,0 +1,111 @@
+﻿<Window x:Class="date_over_3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:date_over_3"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="500" Width="800" Loaded="Window_Loaded" Closed="Window_Closed">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="350"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <!--記帳和日記的標題-->
+        <TextBlock Grid.Row="0" Grid.Column="0" Background="DodgerBlue" FontSize="20" Foreground="AliceBlue" ></TextBlock>
+        <TextBlock Grid.Row="0" Grid.Column="0" Background="DodgerBlue" FontSize="20" Foreground="AliceBlue" HorizontalAlignment="Center" VerticalAlignment="Center">記帳</TextBlock>
+        <TextBlock Grid.Row="0" Grid.Column="1" Background="Orange" FontSize="20" Foreground="PapayaWhip"></TextBlock>
+        <TextBlock Grid.Row="0" Grid.Column="1" Background="Orange" FontSize="20" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center">日記</TextBlock>
+
+        <!--當項目超出畫面時自動產生移動軸-->
+        <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row="1" Grid.Column="0">
+            <StackPanel x:Name="Todolist">
+             </StackPanel>
+        </ScrollViewer>
+
+        <!--當項目超出畫面時自動產生移動軸-->
+        <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row="1" Grid.Column="1">
+            <StackPanel x:Name="word">
+            </StackPanel>
+        </ScrollViewer>
+
+        <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Horizontal">
+            
+            <!--藍色記帳本的按鈕-->
+        <Button x:Name="plus" Width="80" Grid.Row="2" Grid.Column="0"
+        Height="80" FontSize="50" Foreground="AliceBlue" FontStyle="Normal" Margin="158.4,0,5,0" Click="plus_Click">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <Ellipse Stroke="LightSkyBlue"
+                         StrokeThickness="5">
+                                <Ellipse.Fill>
+                                    <RadialGradientBrush>
+                                        <GradientStop Offset="0"
+                                          Color="DodgerBlue"/>
+                                        <GradientStop Offset="1"
+                                          Color="DodgerBlue"/>
+                                        <RadialGradientBrush.Transform>
+                                            <TransformGroup>
+                                                <ScaleTransform ScaleY="0.65" />
+                                            </TransformGroup>
+                                        </RadialGradientBrush.Transform>
+                                    </RadialGradientBrush>
+                                </Ellipse.Fill>
+                            </Ellipse>
+                            <ContentPresenter HorizontalAlignment="Center"
+                                  VerticalAlignment="Center"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Button.Template>
+                +
+            </Button>
+            
+            <StackPanel>
+
+                <!--橘色日記本的按鈕-->
+                <Button Foreground="DodgerBlue" Height="20" FontSize="15" Background="Transparent" BorderThickness="0" Click="Button_Click">total</Button>
+            <TextBlock Width="150" Height="70" x:Name="SUMBOX"></TextBlock>
+            </StackPanel>
+        </StackPanel>
+        <Button x:Name="plusdairy" Width="80" Grid.Row="2" Grid.Column="1"
+        Height="80" FontSize="50" Foreground="PapayaWhip" FontStyle="Normal" Margin="5,0,5,0" Click="plusdairy_Click">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                        <Ellipse Stroke="PapayaWhip"
+                         StrokeThickness="5">
+                            <Ellipse.Fill>
+                                <RadialGradientBrush>
+                                    <GradientStop Offset="0"
+                                          Color="Orange"/>
+                                    <GradientStop Offset="1"
+                                          Color="Orange"/>
+                                    <RadialGradientBrush.Transform>
+                                        <TransformGroup>
+                                            <ScaleTransform ScaleY="0.65" />
+                                        </TransformGroup>
+                                    </RadialGradientBrush.Transform>
+                                </RadialGradientBrush>
+                            </Ellipse.Fill>
+                        </Ellipse>
+                        <ContentPresenter HorizontalAlignment="Center"
+                                  VerticalAlignment="Center"/>
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+            +
+        </Button>
+
+
+
+
+    </Grid>
+</Window>
